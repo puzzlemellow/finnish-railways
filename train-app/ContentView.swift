@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  train-app
-//
-//  Created by Elmeri on 14.6.2020.
-//
-
 import SwiftUI
 
 struct ContentView: View {

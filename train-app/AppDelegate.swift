@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  train-app
-//
-//  Created by Elmeri on 14.6.2020.
-//
-
 import UIKit
 
 @UIApplicationMain
