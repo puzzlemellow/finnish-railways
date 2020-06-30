@@ -2,7 +2,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        ZStack {
+            ResultTableView()
+                .offset(y: 205)
+            SearchView()
+        }
     }
 }
 
