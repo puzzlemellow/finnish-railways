@@ -4,7 +4,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             ResultTableView()
-                .offset(y: 205)
+                .offset(y: 195)
             SearchView()
         }
     }

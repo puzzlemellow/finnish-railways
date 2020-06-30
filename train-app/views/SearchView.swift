@@ -60,7 +60,7 @@ private extension SearchView {
         VStack {
             Rectangle()
                 .foregroundColor(Color("bg_dark_green"))
-                .frame(height: 250)
+                .frame(height: 240)
             Spacer()
         }
     }
