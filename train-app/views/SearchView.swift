@@ -49,7 +49,7 @@ private extension SearchView {
                 icon: "mappin.circle.fill",
                 stations: self.$stations,
                 searchValue: self.$depSearchValue,
-            activity: self.$activeDepartingSearch)
+                activity: self.$activeDepartingSearch)
             
             if(activeDepartingSearch) {
                 DropdownTableView(stations: self.$stations)
@@ -69,7 +69,7 @@ private extension SearchView {
                 icon: "map.fill",
                 stations: self.$stations,
                 searchValue: self.$desSearchValue,
-            activity: self.$activeDestinationSearch)
+                activity: self.$activeDestinationSearch)
             
             if(activeDestinationSearch) {
                 DropdownTableView(stations: self.$stations)
