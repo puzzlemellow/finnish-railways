@@ -143,10 +143,18 @@ struct SearchBarView: View{
                 .resizable()
                 .frame(width: 25, height: 25)
                     
-            TextField(self.hint, text: $searchValue, onEditingChanged: {
-                typing in
-                self.activity = true
-            }).font(.system(size: 20))
+            ZStack {
+                if(searchValue.isEmpty) {
+                    Text(hint)
+                }
+                
+                TextField("", text: $searchValue, onEditingChanged: {
+                    typing in
+                    self.activity = true
+                })
+            }
+            .font(.system(size: 20))
+            
                     
             Button(action: {
                 self.searchValue = ""
