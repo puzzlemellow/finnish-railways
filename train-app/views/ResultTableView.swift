@@ -8,7 +8,6 @@ struct ResultTableView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Divider()
             self.labelCell
             Divider()
             
@@ -27,6 +26,9 @@ struct ResultTableView: View {
                     }
                 }
             }
+            else {
+                Spacer()
+            }
         }
     }
 }
@@ -42,7 +44,7 @@ private extension ResultTableView {
             Spacer()
         }
         .padding(10)
-        .background(Color("fg_bright_green"))
+        .foregroundColor(Color("bg_dark_green"))
     }
 }
 

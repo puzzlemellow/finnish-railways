@@ -85,7 +85,9 @@ private extension SearchView {
     var switchButton: some View {
         VStack {
             Button(action: {
-                
+                let swap = self.commons.departingStation
+                self.commons.departingStation = self.commons.destinationStation
+                self.commons.destinationStation = swap
             }) {
                 Image(systemName: "arrow.up.arrow.down.square.fill")
                     .resizable()
