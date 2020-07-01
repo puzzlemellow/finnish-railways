@@ -2,6 +2,25 @@ import Foundation
 
 struct QueryService {
     
+    func loadConnectionsBetweenStations(depShortCode: String, desShortCode: String, completion: @escaping ([Train]) -> ())
+    {
+        guard let url = URL(string: "https://rata.digitraffic.fi/api/v1/live-trains/station/\(depShortCode)/\(desShortCode)") else {
+            return
+        }
+        
+        httpGet(url: url)
+        {
+            do {
+                let acquiredConnections = try JSONDecoder().decode([Train].self, from: $0)
+                completion(acquiredConnections)
+            }
+            catch let error as NSError {
+                print(error.localizedDescription)
+                return
+            }
+        }.resume()
+    }
+    
     func loadTrainStationData(_ completion: @escaping ([Station]) -> ()) {
         guard let url = URL(string: "https://rata.digitraffic.fi/api/v1/metadata/stations") else {
             return
