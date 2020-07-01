@@ -14,8 +14,9 @@ struct ResultTableView: View {
             if(commons.departingStation.type != Type.CUSTOM && commons.destinationStation.type != Type.CUSTOM)
             {
                 List {
-                    ForEach(connections, id: \.self) { connection in
-                        Text(connection.trainType)
+                    ForEach(connections, id: \.self) {
+                        listItemView(connection: $0)
+                            .listRowInsets(EdgeInsets())
                     }
                 }
                 .onAppear {
@@ -37,14 +38,50 @@ private extension ResultTableView {
     var labelCell: some View {
         HStack {
             Text("Train no.")
-            Spacer()
+                .frame(width: 160, alignment: .leading)
             Text("Departing")
-            Spacer()
+                .frame(width: 110, alignment: .leading)
             Text("Arriving")
+                .frame(width: 100, alignment: .leading)
             Spacer()
         }
         .padding(10)
         .foregroundColor(Color("bg_dark_green"))
+    }
+}
+
+struct listItemView: View {
+    let connection: Train
+    @EnvironmentObject var commons: CommonState
+    
+    var body: some View {
+        VStack {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(connection.trainType + " \(connection.trainNumber)")
+                    Text((connection.commuterLineID ?? "n/a") + "-line")
+                    Text(connection.trainCategory + " train")
+                }
+                .frame(width: 150, alignment: .leading)
+                
+                VStack(alignment: .leading) {
+                    Text(stationNameParser(name: commons.departingStation.stationName))
+                    Text(getStoppingTime(timetable: connection.timeTableRows, stationCode: commons.departingStation.stationShortCode))
+                    Text("Platform: ")
+                }
+                .frame(width: 110)
+                
+                VStack(alignment: .leading) {
+                    Text(stationNameParser(name: commons.destinationStation.stationName))
+                    Text(getStoppingTime(timetable: connection.timeTableRows, stationCode: commons.destinationStation.stationShortCode))
+                    Text("Platform: ")
+                }
+                .frame(width: 110)
+                Spacer()
+            }
+            .padding(EdgeInsets(top: 10,leading: 10,bottom: 0,trailing: 10))
+            Divider()
+        }
     }
 }
 

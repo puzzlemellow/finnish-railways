@@ -21,7 +21,7 @@ struct Train: Decodable, Hashable {
     let operatorShortCode: String
     let trainType: String
     let trainCategory: String
-    let commuterLineID: String
+    let commuterLineID: String?
     let runningCurrently: Bool
     let cancelled: Bool
     let version: Int
