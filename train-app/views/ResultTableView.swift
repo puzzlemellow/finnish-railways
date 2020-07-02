@@ -38,11 +38,11 @@ private extension ResultTableView {
     var labelCell: some View {
         HStack {
             Text("Train no.")
-                .frame(width: 160, alignment: .leading)
+            Spacer()
+            Spacer()
             Text("Departing")
-                .frame(width: 110, alignment: .leading)
+            Spacer()
             Text("Arriving")
-                .frame(width: 100, alignment: .leading)
             Spacer()
         }
         .padding(10)
@@ -52,8 +52,9 @@ private extension ResultTableView {
 
 struct listItemView: View {
     let connection: Train
-    @EnvironmentObject var commons: CommonState
     
+    @EnvironmentObject var commons: CommonState
+
     var body: some View {
         VStack {
             HStack {
@@ -61,27 +62,30 @@ struct listItemView: View {
                     Text(connection.trainType + " \(connection.trainNumber)")
                     Text((connection.commuterLineID ?? "n/a") + "-line")
                     Text(connection.trainCategory + " train")
+                    .lineLimit(1)
                 }
-                .frame(width: 150, alignment: .leading)
+
+                Spacer()
+                Spacer()
                 
                 VStack(alignment: .leading) {
                     Text(stationNameParser(name: commons.departingStation.stationName))
                     Text(getStoppingTime(timetable: connection.timeTableRows, stationCode: commons.departingStation.stationShortCode))
-                    Text("Platform: ")
+                    Text("Platform: " + getPlatform(timetable: connection.timeTableRows, stationCode: commons.departingStation.stationShortCode))
                 }
-                .frame(width: 110)
+                Spacer()
                 
                 VStack(alignment: .leading) {
                     Text(stationNameParser(name: commons.destinationStation.stationName))
                     Text(getStoppingTime(timetable: connection.timeTableRows, stationCode: commons.destinationStation.stationShortCode))
-                    Text("Platform: ")
+                    Text("Platform: " + getPlatform(timetable: connection.timeTableRows, stationCode: commons.destinationStation.stationShortCode))
                 }
-                .frame(width: 110)
                 Spacer()
             }
             .padding(EdgeInsets(top: 10,leading: 10,bottom: 0,trailing: 10))
             Divider()
         }
+        
     }
 }
 

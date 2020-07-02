@@ -29,3 +29,12 @@ func getStoppingTime(timetable: [Train.TimeTableRow], stationCode: String) -> St
     
     return "unknown"
 }
+
+func getPlatform(timetable: [Train.TimeTableRow], stationCode: String) -> String {
+    for station in timetable {
+        if station.stationShortCode == stationCode {
+            return station.commercialTrack ?? "unknown"
+        }
+    }
+    return "unknown"
+}

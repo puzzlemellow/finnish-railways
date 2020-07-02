@@ -27,3 +27,5 @@ struct Train: Decodable, Hashable {
     let version: Int
     let timeTableRows: [TimeTableRow]
 }
+
+let PLACEHOLDER_TIMETABLE = Train.TimeTableRow(stationShortCode: "n/a", stationUICCode: -1, countryCode: "n/a", type: "n/a", trainStopping: false, commercialStop: false, commercialTrack: "n/a", cancelled: false, scheduledTime: "n/a", actualTime: "n/a", differenceInMinutes: -1)
