@@ -2,10 +2,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            ResultTableView()
-                .offset(y: 195)
-            SearchView()
+        GeometryReader { geo in
+            ZStack {
+                VStack {
+                    Spacer()
+                    ResultTableView()
+                        .frame(height: geo.size.height - 195)
+                }
+                SearchView()
+            }
         }
     }
 }

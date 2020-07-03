@@ -30,6 +30,29 @@ struct ResultTableView: View {
             else {
                 Spacer()
             }
+            
+            HStack {
+                Button(action: {
+                    
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("backwards")
+                        Spacer()
+                    }
+                }
+                
+                Button(action: {
+                    
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("forwards")
+                        Spacer()
+                    }
+                }
+            }
+            .frame(height: 70)
         }
     }
 }
