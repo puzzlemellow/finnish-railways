@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ResultTableView: View {
+    let date = Date()
+    let calendar = Calendar.current
     let queryService = QueryService()
     @State private var connections: [Train] = []
     
@@ -33,26 +35,41 @@ struct ResultTableView: View {
             
             HStack {
                 Button(action: {
-                    
+                    //TODO
                 }) {
                     HStack {
-                        Spacer()
-                        Text("backwards")
+                        if (commons.day == calendar.component(.day, from: date) && commons.month == calendar.component(.month, from: date)) {
+                            Spacer()
+                            Text("Today")
+                        }
+                        else {
+                            Image(systemName: "chevron.left.2")
+                            .padding()
+                            Spacer()
+                            Text("\(commons.day).\(commons.month)")
+                        }
                         Spacer()
                     }
                 }
+                Divider()
                 
                 Button(action: {
-                    
+                    //TODO
                 }) {
                     HStack {
                         Spacer()
-                        Text("forwards")
+                        Text("\(commons.day + 1).\(commons.month)")
                         Spacer()
+                        if (commons.day <= 31 && commons.month <= 12) {
+                            Image(systemName: "chevron.right.2")
+                            .padding()
+                        }
                     }
                 }
             }
             .frame(height: 70)
+            .background(Color("bg_dark_green"))
+        .foregroundColor(Color("fg_highlight"))
         }
     }
 }

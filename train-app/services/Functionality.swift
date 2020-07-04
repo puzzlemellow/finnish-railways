@@ -38,3 +38,5 @@ func getPlatform(timetable: [Train.TimeTableRow], stationCode: String) -> String
     }
     return "unknown"
 }
+
+
