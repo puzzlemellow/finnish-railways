@@ -19,6 +19,7 @@
 		5675F43424ABDB49003FA9E9 /* CommonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675F43324ABDB49003FA9E9 /* CommonState.swift */; };
 		5675F43624ABE06B003FA9E9 /* Functionality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675F43524ABE06B003FA9E9 /* Functionality.swift */; };
 		5675F43824AC99DD003FA9E9 /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675F43724AC99DD003FA9E9 /* Train.swift */; };
+		5675F43D24B1C500003FA9E9 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5675F43C24B1C500003FA9E9 /* LocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		5675F43324ABDB49003FA9E9 /* CommonState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonState.swift; sourceTree = "<group>"; };
 		5675F43524ABE06B003FA9E9 /* Functionality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functionality.swift; sourceTree = "<group>"; };
 		5675F43724AC99DD003FA9E9 /* Train.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
+		5675F43C24B1C500003FA9E9 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		5675F41324966EC7003FA9E9 /* train-app */ = {
 			isa = PBXGroup;
 			children = (
+				5675F43924B091C7003FA9E9 /* extensions */,
 				5675F42E249958CD003FA9E9 /* services */,
 				5675F42B2497FC50003FA9E9 /* models */,
 				5675F428249670FC003FA9E9 /* views */,
@@ -113,8 +116,16 @@
 			children = (
 				5675F42F2499590F003FA9E9 /* QueryService.swift */,
 				5675F43524ABE06B003FA9E9 /* Functionality.swift */,
+				5675F43C24B1C500003FA9E9 /* LocationService.swift */,
 			);
 			path = services;
+			sourceTree = "<group>";
+		};
+		5675F43924B091C7003FA9E9 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +203,7 @@
 				5675F41524966EC7003FA9E9 /* AppDelegate.swift in Sources */,
 				5675F41724966EC7003FA9E9 /* SceneDelegate.swift in Sources */,
 				5675F4302499590F003FA9E9 /* QueryService.swift in Sources */,
+				5675F43D24B1C500003FA9E9 /* LocationService.swift in Sources */,
 				5675F43424ABDB49003FA9E9 /* CommonState.swift in Sources */,
 				5675F43624ABE06B003FA9E9 /* Functionality.swift in Sources */,
 				5675F43824AC99DD003FA9E9 /* Train.swift in Sources */,

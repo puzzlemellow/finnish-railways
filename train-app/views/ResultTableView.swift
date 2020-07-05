@@ -78,11 +78,11 @@ private extension ResultTableView {
     var labelCell: some View {
         HStack {
             Text("Train no.")
-            Spacer()
-            Spacer()
+            .frame(width: 140, alignment: .leading)
             Text("Departing")
-            Spacer()
+            .frame(width: 120, alignment: .leading)
             Text("Arriving")
+            .frame(width: 100, alignment: .leading)
             Spacer()
         }
         .padding(10)
@@ -104,22 +104,23 @@ struct listItemView: View {
                     Text(connection.trainCategory + " train")
                     .lineLimit(1)
                 }
-
-                Spacer()
-                Spacer()
+                .frame(width: 140, alignment: .leading)
                 
                 VStack(alignment: .leading) {
                     Text(stationNameParser(name: commons.departingStation.stationName))
                     Text(getStoppingTime(timetable: connection.timeTableRows, stationCode: commons.departingStation.stationShortCode))
                     Text("Platform: " + getPlatform(timetable: connection.timeTableRows, stationCode: commons.departingStation.stationShortCode))
                 }
-                Spacer()
+                .frame(width: 120, alignment: .leading)
                 
                 VStack(alignment: .leading) {
                     Text(stationNameParser(name: commons.destinationStation.stationName))
                     Text(getStoppingTime(timetable: connection.timeTableRows, stationCode: commons.destinationStation.stationShortCode))
                     Text("Platform: " + getPlatform(timetable: connection.timeTableRows, stationCode: commons.destinationStation.stationShortCode))
                 }
+                .frame(width: 90, alignment: .leading)
+                Image(systemName: "chevron.right")
+                .foregroundColor(Color("bg_dark_green"))
                 Spacer()
             }
             .padding(EdgeInsets(top: 10,leading: 10,bottom: 0,trailing: 10))
